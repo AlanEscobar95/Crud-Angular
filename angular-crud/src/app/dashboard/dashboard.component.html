@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-1">
+    <button  matBadgePosition="after" matBadgeColor="accent" class="noOutlinebutton" mat-raised-button
+      color="primary" [routerLink]="['/Add']">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <ng-container *ngFor="let item of ContactDetails">
+    <div class="card" style="width: 24rem; margin: 28px;"  *ngIf="item.Visibility">
+      <div class="card-body">
+        <h2>{{ item.name }}</h2>
+        <h4> {{ item.contactNo }}</h4>
+        <h4> {{ item.email }}</h4>
+        <button class="noOutlinebutton" mat-fab color="warn" [routerLink]="['/Delete', item.id]">
+          <mat-icon>delete</mat-icon>
+        </button> |
+        <button class="noOutlinebutton" mat-fab color="primary"  [routerLink]="['/Update', item.id]">
+          <mat-icon >edit</mat-icon>
+        </button>
+      </div>
+
+    </div>
+  </ng-container>
+</div>
+
